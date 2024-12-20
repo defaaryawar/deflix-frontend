@@ -30,7 +30,7 @@ const BtnDanEmail = () => {
 
     try {
 
-      const response = await fetch("http://localhost:5000/api/otp/send", {
+      const response = await fetch("https://deflix-backend.up.railway.app/api/otp/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

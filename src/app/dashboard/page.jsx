@@ -20,7 +20,7 @@ const Dashboard = () => {
 
         const validateToken = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/auth/validate", {
+                const response = await fetch("https://deflix-backend.up.railway.app/api/auth/validate", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
