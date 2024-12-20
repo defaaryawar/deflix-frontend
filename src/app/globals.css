@@ -1,0 +1,60 @@
+/* Global Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  background-color: black;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: auto;
+  height: 100%;
+}
+
+.backgroundDeflix {
+  background-image: url('/background/background.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: auto;
+  height: 100%;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.faq-text {
+  white-space: pre-line;
+  color: whitesmoke;
+  font-size: 0.9rem;
+}
+
+.faq-sub {
+  color: whitesmoke;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.POverviewDashboard {
+  font-size: 9px;
+  font-family: sans-serif;
+  font-weight: normal;
+  color: white;
+}
