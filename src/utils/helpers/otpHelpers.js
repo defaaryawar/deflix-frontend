@@ -1,6 +1,6 @@
 export const sendOtp = async (email) => {
     try {
-        const response = await fetch("http://localhost:5000/api/otp/send", {
+        const response = await fetch("https://deflix-backend-production.up.railway.app/api/otp/send", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export const sendOtp = async (email) => {
 
 export const verifyOtp = async (email, otp) => {
     try {
-        const response = await fetch("http://localhost:5000/api/otp/verify", {
+        const response = await fetch("https://deflix-backend-production.up.railway.app/api/otp/verify", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
