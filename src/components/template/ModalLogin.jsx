@@ -22,7 +22,7 @@ const ModalLogin = () => {
         setError("");
     
         try {
-            const response = await fetch("deflix-backend-production.up.railway.app/api/auth/login", {
+            const response = await fetch("https://deflix-backend-production.up.railway.app/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
