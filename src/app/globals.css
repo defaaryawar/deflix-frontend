@@ -23,6 +23,17 @@ html, body {
   height: 100%;
 }
 
+.backgroundDeflix.no-scroll,
+.backdrop-blur-md.no-scroll {
+  overflow: hidden !important;
+  height: 100%; /* Mencegah pengguliran vertikal */
+  position: fixed; /* Mencegah pergeseran halaman */
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
 }
@@ -31,13 +42,17 @@ html {
   scrollbar-width: none;
 }
 
-.scroll-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.no-scroll {
+  overflow: hidden !important; /* Mencegah scroll pada semua sumbu */
+  position: fixed; /* Mencegah penggeseran halaman */
+  width: 100%; /* Mencegah horizontal shift */
+  height: 100%; /* Mencegah vertical shift */
+  top: 0;
+  left: 0;
 }
 
-.scroll-container::-webkit-scrollbar {
-  display: none;
+.scroll-container {
+  overflow: hidden !important; /* Nonaktifkan pengguliran horizontal */
 }
 
 .faq-text {
@@ -58,3 +73,4 @@ html {
   font-weight: normal;
   color: white;
 }
+

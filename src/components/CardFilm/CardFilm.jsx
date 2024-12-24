@@ -2,26 +2,20 @@
 
 import { useState, useEffect } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
-import MenuCard from '../atoms/menu';
+import MenuCard from "../atoms/menu";
 import Card from "../atoms/card";
-import useMenuSelection from '../../utils/hooks/useMenuSelection';
-import useScrollNavigation from '../../utils/hooks/useScrollNavigation';
-import ScrollNavButton from '../atoms/ScrollNavButton';
-import ModalFetchCard from '../template/ModalFetchCard';
-import { calculateModalPosition } from '../../utils/hooks/modalPositionUtil';
+import useMenuSelection from "../../utils/hooks/useMenuSelection";
+import useScrollNavigation from "../../utils/hooks/useScrollNavigation";
+import ScrollNavButton from "../atoms/ScrollNavButton";
+import ModalFetchCard from "../template/ModalFetchCard";
 
 const CardFilm = ({ head, title, item, category }) => {
   const { bahasa, text } = useLanguage();
   const [isClient, setIsClient] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const {
-    selectedMenu2,
-    menu2Items,
-    handleMenu2Select,
-  } = useMenuSelection();
-
+  const { selectedMenu2, menu2Items, handleMenu2Select } = useMenuSelection();
   const {
     showLeftButton,
     showRightButton,
@@ -36,6 +30,35 @@ const CardFilm = ({ head, title, item, category }) => {
     setIsClient(true);
   }, []);
 
+  useEffect(() => {
+    const mainContent = document.querySelector("#main-content");
+    if (isModalOpen) {
+      document.body.classList.add("no-scroll");
+      if (mainContent) {
+        mainContent.setAttribute("aria-hidden", "true");
+      }
+
+      // Scroll ke modal setelah dibuka
+      setTimeout(() => {
+        const modalElement = document.getElementById("modal-fetch-card");
+        if (modalElement) {
+          modalElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 100);
+    } else {
+      document.body.classList.remove("no-scroll");
+      if (mainContent) {
+        mainContent.removeAttribute("aria-hidden");
+      }
+    }
+    return () => {
+      document.body.classList.remove("no-scroll");
+      if (mainContent) {
+        mainContent.removeAttribute("aria-hidden");
+      }
+    };
+  }, [isModalOpen]);
+
   if (!isClient) {
     return null;
   }
@@ -45,17 +68,16 @@ const CardFilm = ({ head, title, item, category }) => {
   const handleCardClick = (itemData) => {
     console.log(`Card clicked in ${title}, Item Data:`, itemData);
     setSelectedItem(itemData);
-
-    const modalPosition = calculateModalPosition(scrollContainerRef, item);
-    setModalPosition(modalPosition);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setSelectedItem(null);
+    setIsModalOpen(false);
   };
 
   return (
-    <div className="md:pb-10 md:px-28 sm:pb-15 sm:px-15 lg:pb-25 md:px-25 px-10 pb-5">
+    <div id="main-content" className="md:pb-10 md:px-28 sm:pb-15 sm:px-15 lg:pb-25 md:px-25 px-10 pb-5">
       <div className="flex justify-between">
         <p className="text-white text-3xl font-bold">{title}</p>
         <div className="relative flex gap-4 items-center px-10">
@@ -98,11 +120,10 @@ const CardFilm = ({ head, title, item, category }) => {
         </div>
       </div>
 
-      {selectedItem && (
+      {isModalOpen && selectedItem && (
         <ModalFetchCard
           movie={selectedItem}
           onClose={closeModal}
-          position={modalPosition}
         />
       )}
     </div>

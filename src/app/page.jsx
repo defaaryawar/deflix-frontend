@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Banner from "@/components/banner/banner";
 import Navbar from "@/components/Navbar/Navbar";
@@ -13,6 +13,7 @@ import { Footer } from "@/components/footer/footer";
 
 export default function Home() {
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -21,6 +22,19 @@ export default function Home() {
       router.replace("/dashboard");
     }
   }, [router]);
+
+  useEffect(() => {
+    const rootElement = document.querySelector(".backgroundDeflix");
+    if (isModalOpen && rootElement) {
+      rootElement.classList.add("no-scroll");
+    } else if (rootElement) {
+      rootElement.classList.remove("no-scroll");
+    }
+
+    return () => {
+      if (rootElement) rootElement.classList.remove("no-scroll");
+    };
+  }, [isModalOpen]);
 
   return (
     <div className="backgroundDeflix">
@@ -35,13 +49,13 @@ export default function Home() {
           <BtnDanEmail />
         </section>
         <section>
-          <CardFilmTrending />
+          <CardFilmTrending setIsModalOpen={setIsModalOpen} />
         </section>
         <section>
-          <CardFilmPopular />
+          <CardFilmPopular setIsModalOpen={setIsModalOpen} />
         </section>
         <section>
-          <CardFilmTopRated />
+          <CardFilmTopRated setIsModalOpen={setIsModalOpen} />
         </section>
         <section>
           <Accordin />
