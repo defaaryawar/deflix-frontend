@@ -8,7 +8,7 @@ const ScrollNavButton = ({ direction, onClick, showButton }) => {
             
             <button
                 onClick={onClick}
-                className={`relative px-1 py-5 text-2xl bg-gray-300/50 text-white rounded-full bg-opacity-30 shadow-lg hover:bg-gray-200/50 outline-none transition-all ${showButton ? 'block' : 'hidden'}`}
+                className={`relative px-1 py-5 text-2xl bg-gray-300/20 text-white rounded-full bg-opacity-30 shadow-lg hover:bg-gray-200/30 outline-none transition-all ${showButton ? 'block' : 'hidden'}`}
             >
                 {direction === 'left' ? '<' : '>'}
             </button>
