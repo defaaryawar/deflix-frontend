@@ -69,7 +69,7 @@ export const LanguageProvider = ({ children }) => {
                 </>
             ),
             FaqQualityVideo: "Kenapa kualitas streaming saya buruk?",
-            FaqQualityVideo1: "Jika kualitas streaming Netflix buruk, beberapa faktor mungkin menjadi penyebabnya:",
+            FaqQualityVideo1: "Jika kualitas streaming Deflix buruk, beberapa faktor mungkin menjadi penyebabnya:",
             FaqQualityVideo2: (
                 <>
                     •  Koneksi internet lambat. <br />
@@ -173,7 +173,7 @@ export const LanguageProvider = ({ children }) => {
                 </>
             ),
             FaqQualityVideo: "Why is my streaming quality bad?",
-            FaqQualityVideo1: "If Netflix streaming quality is poor, several factors may be to blame:",
+            FaqQualityVideo1: "If Deflix streaming quality is poor, several factors may be to blame:",
             FaqQualityVideo2: (
                 <>
                     •  Slow internet connection. <br />
