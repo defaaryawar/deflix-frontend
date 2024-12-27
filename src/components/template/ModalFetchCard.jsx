@@ -13,7 +13,7 @@ const ModalFetchCard = ({ movie, onClose }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Mobile jika lebar layar < 768px
+      setIsMobile(window.innerWidth < 768);
     };
 
     // Set kondisi awal dan tambahkan event listener
@@ -27,29 +27,12 @@ const ModalFetchCard = ({ movie, onClose }) => {
   }, []);
 
   useEffect(() => {
-    const mainContent = document.querySelector("#main-content");
     if (movie) {
-      setIsVisible(true);
-      // Nonaktifkan scroll dan interaksi pada elemen lain
-      document.body.style.overflow = "hidden";
-      if (mainContent) {
-        mainContent.setAttribute("aria-hidden", "true");
-      }
+      setIsVisible(true); // Menampilkan konten jika movie ada
     } else {
-      setIsVisible(false);
-      // Pulihkan scroll dan interaksi
-      document.body.style.overflow = "auto";
-      if (mainContent) {
-        mainContent.removeAttribute("aria-hidden");
-      }
+      setIsVisible(false); // Menyembunyikan konten jika movie tidak ada
+      console.log("Movie tidak ditemukan"); // Untuk debugging
     }
-    return () => {
-      // Cleanup untuk mencegah efek residual
-      document.body.style.overflow = "auto";
-      if (mainContent) {
-        mainContent.removeAttribute("aria-hidden");
-      }
-    };
   }, [movie]);
 
   const handleClose = () => {
@@ -79,14 +62,12 @@ const ModalFetchCard = ({ movie, onClose }) => {
     <div
       id="modal-fetch-card"
       tabIndex="0"
-      className={`fixed inset-0 z-50 flex flex-col px-4 justify-center items-center bg-black bg-opacity-70 transition-opacity duration-500 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className={`fixed inset-0 z-50 flex flex-col px-4 justify-center items-center bg-black bg-opacity-70 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"
+        }`}
     >
       <div
-        className={`relative flex flex-col md:flex-row bg-black/95 backdrop-blur-md rounded-lg max-w-3xl w-full max-h-[80vh] overflow-y-auto transition-all duration-700 ease-in-out transform ${
-          isVisible ? "scale-100 opacity-100 shadow-xl" : "scale-95 opacity-0 shadow-none"
-        }`}
+        className={`relative flex flex-col md:flex-row bg-black/95 backdrop-blur-md rounded-lg max-w-3xl w-full max-h-[80vh] overflow-y-auto transition-all duration-700 ease-in-out transform ${isVisible ? "scale-100 opacity-100 shadow-xl" : "scale-95 opacity-0 shadow-none"
+          }`}
       >
         <div
           className={`relative flex flex-row bg-black/95 backdrop-blur-md rounded-lg max-w-3xl w-full max-h-[80vh] overflow-y-auto transition-all duration-700 ease-in-out transform ${isVisible ? "scale-100 opacity-100 shadow-xl" : "scale-95 opacity-0 shadow-none"
