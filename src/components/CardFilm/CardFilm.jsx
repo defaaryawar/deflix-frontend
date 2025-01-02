@@ -89,7 +89,7 @@ const CardFilm = ({ head, title, item, category }) => {
         </div>
       </div>
       <div className="mt-2 relative">
-        <div className="absolute top-0 bottom-0 -left-3 md:-left-10">
+        <div className="absolute top-0 bottom-0 left-0 md:-left-10">
           <ScrollNavButton
             direction="left"
             onClick={scrollLeft}
@@ -111,7 +111,7 @@ const CardFilm = ({ head, title, item, category }) => {
             />
           </div>
         </div>
-        <div className="absolute top-0 bottom-0 -right-3 md:-right-10">
+        <div className="absolute top-0 bottom-0 right-0 md:-right-10">
           <ScrollNavButton
             direction="right"
             onClick={scrollRight}
