@@ -9,7 +9,7 @@ const Banner = () => {
     const headingParts = text[bahasa].banner.heading.split(",");
 
     return (
-        <div className="px-10 pb-4">
+        <div className="md:px-10 md:pb-4 px-4 pb-3">
             <div className="relative bg-[url('/background/background.jpeg')] bg-cover bg-center border-2 border-white rounded-2xl h-[550px]">
                 {/* Efek overlay gelap */}
                 <div className="absolute inset-0 bg-black opacity-70 rounded-2xl z-10"></div>
