@@ -16,7 +16,7 @@ const Card = ({ head, category, item = 'day', onCardClick }) => {
       ) : error ? (
         <p className="text-red-500 text-center">{error}</p>
       ) : (
-        <div className="overflow-x-auto pb-4 scroll-container p-2">
+        <div className="overflow-x-auto pb-4 scroll-container md:py-2 md:px-2 px-4 py-2">
           <div className="flex flex-row space-x-4 md:gap-4 gap-0">
             {items.length > 0 ? (
               items.map((item) => (
