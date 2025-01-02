@@ -4,7 +4,7 @@ import { AccordionContent } from './AccordionContent';
 
 export function AccordionItem({ label, isExpanded, toggleExpand, children }) {
     return (
-        <div>
+        <div classname="bg-black opacity-70">
             <AccordionButton isExpanded={isExpanded} toggleExpand={toggleExpand} label={label} />
             <AccordionContent isExpanded={isExpanded}>{children}</AccordionContent>
         </div>
