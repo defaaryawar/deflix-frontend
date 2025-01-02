@@ -77,7 +77,7 @@ const CardFilm = ({ head, title, item, category }) => {
   };
 
   return (
-    <div id="main-content" className="md:pb-10 md:px-28 sm:pb-15 sm:px-15 lg:pb-25 md:px-25 px-10 pb-5">
+    <div id="main-content" className="md:pb-10 md:px-28 sm:pb-15 sm:px-15 lg:pb-25 md:px-25 px-4 pb-3">
       <div className="flex justify-between">
         <p className="text-white text-lg sm:2xl md:3xl lg:3xl font-bold">{title}</p>
         <div className="relative flex gap-4 items-center md:px-10 px-0">
