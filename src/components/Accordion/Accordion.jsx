@@ -17,7 +17,7 @@ export default function Accordion() {
     };
 
     return (
-        <div id="accordion-nested-parent" className="px-16 py-5 mx-auto">
+        <div id="accordion-nested-parent" className="md:px-16 md:py-5 px-2 py-2 mx-auto">
             <h1 className="text-white text-start text-2xl ml-4 mb-2 font-semibold">{text[bahasa].FAQ}</h1>
             <div className="bg-black/75 rounded-lg shadow-lg overflow-hidden">
                 {/* Main Accordion Item */}
