@@ -94,7 +94,7 @@ const OtpPage = () => {
             setIsLoading(true);
             const email = getEmail();
 
-            const response = await fetch("https://deflix-backend-production.up.railway.app/api/users", {
+            const response = await fetch("https://naughty-emogene-deflix-67da416e.koyeb.app/api/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const OtpPage = () => {
                 throw new Error(data.message || "Gagal mendaftar. Silakan coba lagi.");
             }
     
-            const tokenResponse = await fetch("https://deflix-backend-production.up.railway.app/api/auth/login", {
+            const tokenResponse = await fetch("https://naughty-emogene-deflix-67da416e.koyeb.app/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
