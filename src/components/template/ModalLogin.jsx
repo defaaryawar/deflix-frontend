@@ -22,7 +22,7 @@ const ModalLogin = () => {
         setError("");
     
         try {
-            const response = await fetch("https://naughty-emogene-deflix-67da416e.koyeb.app//api/auth/login", {
+            const response = await fetch("https://naughty-emogene-deflix-67da416e.koyeb.app/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
