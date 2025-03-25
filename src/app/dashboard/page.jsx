@@ -20,7 +20,7 @@ const Dashboard = () => {
 
         const validateToken = async () => {
             try {
-                const response = await fetch("https://naughty-emogene-deflix-67da416e.koyeb.app//api/auth/validate", {
+                const response = await fetch("https://naughty-emogene-deflix-67da416e.koyeb.app/api/auth/validate", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
